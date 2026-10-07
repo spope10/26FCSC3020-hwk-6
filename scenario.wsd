@@ -1,5 +1,38 @@
+@startuml
+
 left to right direction
+
+actor Company
+actor Candidate
+actor "Hiring Committee" as Committee
 
 package hiring {
 
+    usecase "Create Job Description" as UC1
+    usecase "Generate Shareable Link" as UC2
+    usecase "Apply for Job" as UC3
+    usecase "Upload Documents" as UC4
+    usecase "Evaluate Candidates" as UC5
+    usecase "Discard Candidate" as UC6
+    usecase "Send Rejection Email" as UC7
+    usecase "Interview Candidate" as UC8
+    usecase "Make Hiring Decision" as UC9
+    usecase "Generate Analytical Report" as UC10
+
 }
+
+Company --> UC1
+Company --> UC2
+
+Candidate --> UC3
+Candidate --> UC4
+
+Committee --> UC5
+Committee --> UC6
+Committee --> UC8
+Committee --> UC9
+Committee --> UC10
+
+UC6 ..> UC7 : <<include>>
+
+@enduml
